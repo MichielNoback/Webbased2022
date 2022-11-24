@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sequence Submit form</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h3 th:text="${error_message}"></h3>
+
+<h2>Please enter your sequence for analysis</h2>
+<form action="seq_submit" method="post">
+    <label for="seq_submit_field">Your sequence:</label>
+    <textarea id="seq_submit_field" cols="60" rows="20" name="sequence"></textarea>
+    <input type="submit" value="Submit"/>
+</form>
+
+<img src="pictures/Steppe_buzzard.jpg" >
+
+<!-- welcome message read from resource bundle welcome.html-->
+<!--<p th:text="#{welcome.msg}">Welcome Offline</p>-->
+<!--<p> You requested <span th:text="${species}">__$species__</span></p>-->
+<!--&lt;!&ndash; date forwarded from the servlet&ndash;&gt;-->
+<!--<p>Date: <span th:text="${currentDate}">Sat Oct 24 2015</span></p>-->
+</body>
+</html>
