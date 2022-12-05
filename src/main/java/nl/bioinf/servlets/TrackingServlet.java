@@ -1,14 +1,13 @@
 package nl.bioinf.servlets;
 
 import nl.bioinf.config.WebConfig;
-import nl.bioinf.model.User;
+import nl.bioinf.model.UserFirst;
 import org.thymeleaf.context.WebContext;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.util.Date;
 
 @WebServlet(name = "TrackingServlet", urlPatterns = "/track_me")
 public class TrackingServlet extends HttpServlet {
@@ -45,27 +44,27 @@ public class TrackingServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         if (session.getAttribute("user") == null) {
-            User loggedInUser = authenticateUser(username, password);
-            if (loggedInUser == null) {
+            UserFirst loggedInUserFirst = authenticateUser(username, password);
+            if (loggedInUserFirst == null) {
                 WebConfig.createTemplateEngine(getServletContext()).
                         process("login", ctx, response.getWriter());
             } else {
-                session.setAttribute("user", loggedInUser);
+                session.setAttribute("user", loggedInUserFirst);
                 WebConfig.createTemplateEngine(getServletContext()).
                         process("visits", ctx, response.getWriter());
             }
         } else {
             //increase count?
-            User user = (User)session.getAttribute("user");
-            user.addVisit();
+            UserFirst userFirst = (UserFirst)session.getAttribute("user");
+            userFirst.addVisit();
             WebConfig.createTemplateEngine(getServletContext()).
                     process("visits", ctx, response.getWriter());
         }
     }
 
-    private User authenticateUser(String username, String password) {
+    private UserFirst authenticateUser(String username, String password) {
         if (username.equals("henk@example.nl") && password.equals("henk")){
-            return new User("Guest", username);
+            return new UserFirst("Guest", username);
         }
         else return null;
     }

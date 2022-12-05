@@ -6,10 +6,10 @@
 </head>
 <head>
     <meta charset="UTF-8">
-    <title th:text="${'the number of visits is ' + session.user.visits}"></title>
+    <title th:text="${'the number of visits is ' + session.userFirst.visits}"></title>
 </head>
 <body>
-    <h1 th:text="${'welcome, ' + session.user.name}"></h1>
-    <h1 th:text="${'the number of visits is ' + session.user.visits}"></h1>
+    <h1 th:text="${'welcome, ' + session.userFirst.name}"></h1>
+    <h1 th:text="${'the number of visits is ' + session.userFirst.visits}"></h1>
 </body>
 </html>
