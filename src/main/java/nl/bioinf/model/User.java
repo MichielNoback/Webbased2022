@@ -49,4 +49,14 @@ public class User {
         return role;
     }
     //toString(), equals(), hashCode() and getSome() omitted
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
+    }
 }

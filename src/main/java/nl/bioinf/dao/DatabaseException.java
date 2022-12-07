@@ -1,6 +1,6 @@
 package nl.bioinf.dao;
 
-public class DatabaseException extends Exception {
+public class DatabaseException extends RuntimeException {
     public DatabaseException() {
         super();
     }
